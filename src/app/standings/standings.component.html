@@ -1,1 +1,3 @@
-<p>standings works!</p>
+<ul *ngIf="standings.standings | async">
+  <li *ngFor="let standing of standings"></li>
+</ul>
