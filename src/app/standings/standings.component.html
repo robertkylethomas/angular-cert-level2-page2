@@ -1,3 +1,45 @@
-<ul *ngIf="standings.standings | async">
-  <li *ngFor="let standing of standings"></li>
+<ul *ngIf="standings | async as localStandings">
+  <li *ngFor="let standing of localStandings">
+    <div class="top">
+      <div class="top-left">
+        <img [src]="standing.team.logo" alt="" />
+        <h2>{{ standing.team.name }}</h2>
+      </div>
+      <div data-title="rank">{{ standing.rank }}</div>
+    </div>
+    <div class="bottom">
+      <div data-title="games">{{ standing.all.played }}</div>
+      <div data-title="win">{{ standing.all.win }}</div>
+      <div data-title="lose">{{ standing.all.lose }}</div>
+      <div data-title="draw">{{ standing.all.draw }}</div>
+      <div data-title="goalsDiff">{{ standing.goalsDiff }}</div>
+      <div data-title="points">{{ standing.points }}</div>
+    </div>
+  </li>
 </ul>
+<!--
+<table *ngIf="standings | async as localStandings">
+  <tr>
+    <td></td>
+    <td></td>
+    <td>name</td>
+    <td>played</td>
+    <td>win</td>
+    <td>lose</td>
+    <td>draw</td>
+    <td>goalsDiff</td>
+    <td>points</td>
+  </tr>
+
+  <tr *ngFor="let standing of localStandings">
+    <td>{{ standing.rank }}</td>
+    <td><img [src]="standing.team.logo" alt="" /></td>
+    <td>{{ standing.team.name }}</td>
+    <td>{{ standing.all.played }}</td>
+    <td>{{ standing.all.win }}</td>
+    <td>{{ standing.all.lose }}</td>
+    <td>{{ standing.all.draw }}</td>
+    <td>{{ standing.goalsDiff }}</td>
+    <td>{{ standing.points }}</td>
+  </tr>
+</table> -->

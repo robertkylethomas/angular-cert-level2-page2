@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { ILeague } from 'src/standing.models';
+import { Observable, map, mergeAll, of } from 'rxjs';
+import { ILeague, IStanding } from 'src/standing.models';
 import { StandingsService } from 'src/standings.service';
 
 @Component({
@@ -11,10 +11,14 @@ import { StandingsService } from 'src/standings.service';
 export class StandingsComponent implements OnInit {
   constructor(private standingsService: StandingsService) {}
 
-  standings: Observable<ILeague> = of();
+  standings: Observable<IStanding[]> = of();
 
   ngOnInit(): void {
     console.log('This is a test');
-    this.standings = this.standingsService.getStandings();
+    this.standings = this.standingsService
+      .getStandings()
+      .pipe(map((res) => res.standings[0]));
+
+    // this.standings.subscribe((res) => console.log(res.standings[0]));
   }
 }
