@@ -9,11 +9,11 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'tournament/:tournamentId',
+    path: 'tournament/:leagueId',
     component: HomeComponent,
   },
   {
-    path:'tournament/:tournamentId/:teamId',
+    path:'tournament/:leagueId/:teamId',
     component: FixturesComponent
   }
 ];
