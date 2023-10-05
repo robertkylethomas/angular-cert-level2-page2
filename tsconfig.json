@@ -14,6 +14,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "strictFunctionTypes": false,
+    "strictNullChecks": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,

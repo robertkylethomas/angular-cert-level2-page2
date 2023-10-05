@@ -20,11 +20,11 @@ export class StandingsComponent implements OnInit {
       .getStandings()
       .pipe(map((res) => res.standings[0]));
 
-    // this.standings.subscribe((res) => console.log(res.standings[0]));
+
   }
 
   openFixtures(tournamentId: number , teamId: number){
-    this.router.navigate(['fixture',tournamentId, teamId])
+    this.router.navigate(['tournament',tournamentId, teamId])
   }
 
 }

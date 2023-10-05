@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+
+import { IStanding } from './../../standing.models';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-standing',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class StandingComponent {
 
+  @Input('standing') standing: IStanding;
 }
