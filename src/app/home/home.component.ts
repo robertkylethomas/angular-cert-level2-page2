@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private activatedRoute: ActivatedRoute){
+    console.log('these are home route params ')
+    this.activatedRoute.params.subscribe(res => console.log(res))
+
+  }
 }

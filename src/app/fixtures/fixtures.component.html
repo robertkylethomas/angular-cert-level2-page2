@@ -1,1 +1,25 @@
-<p>fixtures works!</p>
+<ul>
+  <li *ngFor="let response of allResponses | async">
+    <div class="home">
+      <img [src]="response.teams.home.logo" alt="">
+      <p>
+        {{
+          response.teams.home.name
+        }}
+      </p>
+      <p>{{
+        response.goals.home
+      }}</p>
+    </div>
+    <div class="away">
+      <p> {{
+        response.goals.away
+      }}</p>
+      <p> {{
+        response.teams.away.name
+      }}</p>
+      <img [src]="response.teams.away.logo" alt="">
+     </div>
+  </li>
+</ul>
+<button routerLink="'../'">Back</button>

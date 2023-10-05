@@ -13,6 +13,7 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "strictFunctionTypes": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
