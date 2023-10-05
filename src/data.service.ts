@@ -28,7 +28,7 @@ export class DataService {
   getFixtures(leagueId: number, teamId: number):Observable<IFixtureResponse[]>{
     console.log('return fixtures', leagueId, teamId)
     return this.http
-      .get<IFixtureResponse>(`https://v3.football.api-sports.io/fixtures?team=${leagueId}&season=2023&league=${teamId}&last=10`)
+      .get<IFixtureResponse>(`https://v3.football.api-sports.io/fixtures?team=${teamId}&season=2023&league=${leagueId}&last=10`)
       .pipe(
         map<any, any>((fixtureResponse:IFixturePayload) => fixtureResponse.response ),
         tap(res => console.log('fixture 1 response', res)),
