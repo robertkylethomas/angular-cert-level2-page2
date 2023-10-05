@@ -22,12 +22,11 @@ export class StandingsComponent implements OnInit {
   //     map((league: ILeague) => league.standings[0])
   //   )
 
-  this.activatedRoute.params.pipe(
-    tap(res => console.log(res)),
+  this.standings = this.activatedRoute.params.pipe(
     map((params) => params['leagueId']),
     switchMap((leagueId: number) => this.dataService.getStandings(leagueId)),
-    tap(res => console.log(res))
-  ).subscribe()
+    map((league: ILeague) => league.standings[0])
+  )
 
 
 
