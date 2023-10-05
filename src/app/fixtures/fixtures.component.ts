@@ -18,7 +18,7 @@ export class FixturesComponent implements OnInit {
   ngOnInit(): void {
 
      this.allResponses = this.activatedRoute.params.pipe(
-      switchMap((routeParams: IFixtureRouteParams) => this.dataService.getFixtures(routeParams.tournamentId, routeParams.teamId))
+      switchMap((routeParams: IFixtureRouteParams) => this.dataService.getFixtures(routeParams.leagueId, routeParams.teamId))
     )
 
   }

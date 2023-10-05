@@ -87,6 +87,6 @@ export interface IScore {
 }
 
 export interface IFixtureRouteParams{
-  tournamentId: number;
+  leagueId: number;
   teamId: number;
 }

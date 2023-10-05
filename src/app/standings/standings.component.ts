@@ -15,12 +15,6 @@ export class StandingsComponent implements OnInit {
   standings: Observable<IStanding[]> = of();
 
   ngOnInit(): void {
-    console.log('This is a test');
-
-  //  this.standings = this.activatedRoute.params.pipe(
-  //     switchMap((params: {leagueId: number}) => this.dataService.getStandings(params.leagueId)),
-  //     map((league: ILeague) => league.standings[0])
-  //   )
 
   this.standings = this.activatedRoute.params.pipe(
     map((params) => params['leagueId']),
@@ -32,8 +26,9 @@ export class StandingsComponent implements OnInit {
 
   }
 
-  openFixtures(tournamentId: number , teamId: number){
-    this.router.navigate(['tournament',tournamentId, teamId])
+  openFixtures(teamId: number){
+
+    this.router.navigate(['league',this.activatedRoute.snapshot.params['leagueId'], 'fixtures', teamId])
   }
 
 }

@@ -13,6 +13,6 @@ export class HomeComponent {
   }
 
   changeRoute(leagueId: number){
-    this.router.navigate(['tournament',leagueId])
+    this.router.navigate(['league',leagueId])
   }
 }

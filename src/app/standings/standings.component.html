@@ -13,7 +13,7 @@
     <td>points</td>
   </tr>
 
-  <tr *ngFor="let standing of localStandings" >
+  <tr *ngFor="let standing of localStandings" (click)="openFixtures(standing.team.id)" >
     <td>{{ standing.rank }}</td>
     <td><img [src]="standing.team.logo" alt="" /></td>
     <td>{{ standing.team.name }}</td>

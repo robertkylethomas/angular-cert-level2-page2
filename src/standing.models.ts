@@ -1,20 +1,9 @@
 export interface IPayload {
   get: string;
-  parameters: IParameters;
-  errors: any[];
+
   results: number;
-  paging: IPaging;
+
   response: IResponse[];
-}
-
-export interface IPaging {
-  current: number;
-  total: number;
-}
-
-export interface IParameters {
-  league: string;
-  season: string;
 }
 
 export interface IResponse {
