@@ -1,25 +1,22 @@
 <ul>
+  <li>
+    <div class="home"><h4>Home</h4></div>
+    <div class="away"><h4>Away</h4></div>
+  </li>
   <li *ngFor="let response of allResponses | async">
     <div class="home">
-      <img [src]="response.teams.home.logo" alt="">
+      <img [src]="response.teams.home.logo" alt="" />
       <p>
-        {{
-          response.teams.home.name
-        }}
+        {{ response.teams.home.name }}
       </p>
-      <p>{{
-        response.goals.home
-      }}</p>
+      <p>{{ response.goals.home }}</p>
     </div>
+
     <div class="away">
-      <p> {{
-        response.goals.away
-      }}</p>
-      <p> {{
-        response.teams.away.name
-      }}</p>
-      <img [src]="response.teams.away.logo" alt="">
-     </div>
+      <p>{{ response.goals.away }}</p>
+      <p>{{ response.teams.away.name }}</p>
+      <img [src]="response.teams.away.logo" alt="" />
+    </div>
   </li>
 </ul>
-<button routerLink="'../'">Back</button>
+<button (click)="goBack()">Back</button>

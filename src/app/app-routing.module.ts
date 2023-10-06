@@ -13,9 +13,9 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path:'league/:leagueId/fixtures/:teamId',
-    component: FixturesComponent
-  }
+    path: 'league/:leagueId/fixtures/:teamId',
+    component: FixturesComponent,
+  },
 ];
 
 @NgModule({
