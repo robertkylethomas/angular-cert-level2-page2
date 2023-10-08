@@ -11,20 +11,19 @@ import { IResponse } from 'src/app/models/standing.models';
   styleUrls: ['./fixtures.component.css'],
 })
 export class FixturesComponent implements OnInit {
-  allResponses: Observable<IFixtureResponse[]> = of([]);
+  allResponses: Observable<IFixtureResponse[]> =
+    this.activatedRoute.params.pipe(
+      switchMap((routeParams: IFixtureRouteParams) =>
+        this.dataService.getFixtures(routeParams.leagueId, routeParams.teamId)
+      )
+    );
   constructor(
     private dataService: DataService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.allResponses = this.activatedRoute.params.pipe(
-      switchMap((routeParams: IFixtureRouteParams) =>
-        this.dataService.getFixtures(routeParams.leagueId, routeParams.teamId)
-      )
-    );
-  }
+  ngOnInit(): void {}
 
   goBack() {
     const urlSegment: UrlSegment[] = this.activatedRoute.snapshot.url;

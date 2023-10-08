@@ -3,20 +3,8 @@
     <div class="home"><h4>Home</h4></div>
     <div class="away"><h4>Away</h4></div>
   </li>
-  <li *ngFor="let response of allFixtures">
-    <div class="home">
-      <img [src]="response.teams.home.logo" alt="" />
-      <p>
-        {{ response.teams.home.name }}
-      </p>
-      <p>{{ response.goals.home }}</p>
-    </div>
-
-    <div class="away">
-      <p>{{ response.goals.away }}</p>
-      <p>{{ response.teams.away.name }}</p>
-      <img [src]="response.teams.away.logo" alt="" />
-    </div>
+  <li *ngFor="let fixture of allFixtures">
+    <app-fixture [fixture]="fixture"></app-fixture>
   </li>
 </ul>
 <ng-template #loading>
