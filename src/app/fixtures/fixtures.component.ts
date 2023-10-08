@@ -31,6 +31,6 @@ export class FixturesComponent implements OnInit {
 
     console.log(thing[0], thing[1]);
 
-    // this.router.navigate([thing[0].path, this.]);
+    this.router.navigate([thing[0].path, thing[1].path]);
   }
 }
