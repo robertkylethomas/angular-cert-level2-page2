@@ -1,9 +1,9 @@
-<ul>
+<ul *ngIf="allResponses | async as allFixtures; else loading">
   <li>
     <div class="home"><h4>Home</h4></div>
     <div class="away"><h4>Away</h4></div>
   </li>
-  <li *ngFor="let response of allResponses | async">
+  <li *ngFor="let response of allFixtures">
     <div class="home">
       <img [src]="response.teams.home.logo" alt="" />
       <p>
@@ -19,4 +19,8 @@
     </div>
   </li>
 </ul>
+<ng-template #loading>
+  <h2>Fetching fixtures</h2>
+</ng-template>
+
 <button (click)="goBack()">Back</button>
