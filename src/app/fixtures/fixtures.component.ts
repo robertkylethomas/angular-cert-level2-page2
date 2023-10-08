@@ -1,9 +1,9 @@
-import { IFixtureResponse, IFixtureRouteParams } from './../../fixture.model';
+import { IFixtureResponse, IFixtureRouteParams } from '../models/fixture.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { Observable, map, of, switchMap, tap } from 'rxjs';
-import { DataService } from 'src/data.service';
-import { IResponse } from 'src/standing.models';
+import { DataService } from 'src/app/services/data.service';
+import { IResponse } from 'src/app/models/standing.models';
 
 @Component({
   selector: 'app-fixtures',
@@ -27,10 +27,7 @@ export class FixturesComponent implements OnInit {
   }
 
   goBack() {
-    const thing: UrlSegment[] = this.activatedRoute.snapshot.url;
-
-    console.log(thing[0], thing[1]);
-
-    this.router.navigate([thing[0].path, thing[1].path]);
+    const urlSegment: UrlSegment[] = this.activatedRoute.snapshot.url;
+    this.router.navigate([urlSegment[0].path, urlSegment[1].path]);
   }
 }
