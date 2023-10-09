@@ -1,8 +1,11 @@
 <ul>
-  <li id="englandSelect" (click)="changeRoute(39)">England</li>
-  <li id="spainSelect" (click)="changeRoute(140)">Spain</li>
-  <li id="germanySelect" (click)="changeRoute(78)">Germany</li>
-  <li id="franceSelect" (click)="changeRoute(61)">France</li>
-  <li id="italySelect" (click)="changeRoute(135)">Italy</li>
+    <li routerLinkActive='active' id="englandSelect" [routerLink]="['/league','39']">England</li>
+    <li routerLinkActive='active' id="spainSelect" [routerLink]="['/league','140']">Spain</li>
+    <li routerLinkActive='active' id="germanySelect" [routerLink]="['/league','78']">Germany</li>
+    <li routerLinkActive='active' id="franceSelect" [routerLink]="['/league','61']">France</li>
+    <li routerLinkActive='active' id="italySelect" [routerLink]="['/league','135']">Italy</li>
 </ul>
+<a href="" [routerLinkActive]="'sd'"></a>
+
+
 <app-standings></app-standings>
