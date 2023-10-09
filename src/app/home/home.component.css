@@ -23,7 +23,7 @@ li:hover {
   cursor: pointer;
 }
 
-.active{
+.active-link {
   color: #fff;
   background: #404252;
 }
