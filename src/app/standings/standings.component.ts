@@ -13,20 +13,22 @@ export class StandingsComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+
   ) {}
 
-  standings: Observable<IStanding[]> = of();
+  standings: Observable<IStanding[]> = this.activatedRoute.params.pipe(
+    map((params) => params['leagueId']),
+    switchMap((leagueId: number) => this.dataService.getStandings(leagueId)),
+    map((league: ILeague) => league.standings[0])
+  );
 
-  ngOnInit(): void {
-    this.standings = this.activatedRoute.params.pipe(
-      map((params) => params['leagueId']),
-      switchMap((leagueId: number) => this.dataService.getStandings(leagueId)),
-      map((league: ILeague) => league.standings[0])
-    );
-  }
+  ngOnInit(): void {}
 
   openFixtures(teamId: number) {
+
+    console.log(this.activatedRoute.snapshot.params)
+
     this.router.navigate([
       'league',
       this.activatedRoute.snapshot.params['leagueId'],
